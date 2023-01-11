@@ -1,11 +1,16 @@
 {
-  "prettier.documentSelectors": ["**/*.svelte"],
-  "[svelte]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
+ "editor.formatOnSave": true,
+ "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.codeActionsOnSave": {
     "source.fixAll.prettier": true
   },
-  "eslint.validate": ["javascript", "typescript", "json", "yaml"]
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "json",
+    "yaml"
+  ],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
