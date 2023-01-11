@@ -1,0 +1,11 @@
+{
+  "prettier.documentSelectors": ["**/*.svelte"],
+  "[svelte]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.prettier": true
+  },
+  "eslint.validate": ["javascript", "typescript", "json", "yaml"]
+}
