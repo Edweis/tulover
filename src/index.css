@@ -29,3 +29,9 @@
     opacity: 0.5;
   }
 }
+
+@layer components {
+  .text-muted {
+    @apply text-gray-500 text-sm
+  }
+}

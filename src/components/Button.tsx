@@ -8,7 +8,7 @@ const Button = forwardRef<unknown, React.HTMLAttributes<HTMLButtonElement>>(
       <button
         ref={ref as any}
         className={cn(
-          'text-blue-500 bg-blue-900 rounded-xl px-4 py-2 active:bg-blue-800',
+          'gap-1 flex items-center text-blue-500 bg-blue-900 rounded-xl px-5 active:bg-blue-800 h-10',
           className,
         )}
         {...others}

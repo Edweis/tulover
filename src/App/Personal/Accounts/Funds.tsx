@@ -51,15 +51,15 @@ export default function Funds() {
         <div>{name}</div>
       </div>
       <div className="flex gap-4">
-        <Button className="align-middle">
-          <PlusIcon className="inline w-6" />
+        <Button>
+          <PlusIcon className="w-6" />
           Add Money
         </Button>
         <Button>
           <EllipsisHorizontalIcon className="w-6" />
         </Button>
       </div>
-      <div className="flex justify-between text-gray-500">
+      <div className="text-muted flex justify-between">
         <span>Transactions</span>
         <button>
           <EllipsisHorizontalIcon className="h-4" />
@@ -76,13 +76,13 @@ export default function Funds() {
             </div>
             <div className="ml-4 grid">
               <span>{tx.name}</span>
-              <span className="text-gray-300">
+              <span className="text-muted">
                 {dayjs(tx.date).format('D MMMM[, ]HH:mm')}
               </span>
             </div>
             <div className="ml-auto grid text-right">
               <span>{toCurrency(tx.amount)}</span>
-              <span className="text-gray-300">
+              <span className="text-muted">
                 {tx.amountReq && toCurrency(tx.amountReq)}
               </span>
             </div>
