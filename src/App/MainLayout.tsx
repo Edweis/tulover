@@ -11,7 +11,6 @@ import React from "react";
 import cn from "classnames";
 export default function MainLayout() {
   const { pathname } = useLocation();
-  console.log({ pathname });
   return (
     <>
       <Outlet />

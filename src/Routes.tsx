@@ -31,11 +31,10 @@ export default function App() {
           <Route path="personal" element={<PersonalLayout />}>
             <Route path="accounts" element={<Accounts />} />
             <Route path="cards" element={<Cards />} />
-            <Route path="*" element={<Navigate to="accounts" />} />
+            <Route index element={<Navigate to="accounts" />} />
           </Route>
           <Route path="transfer" element={<div>Transfer</div>}></Route>
           <Route path="hub" element={<div>Hub</div>}></Route>
-
           <Route path="*" element={<Navigate to="personal" />} />
         </Route>
       </Routes>
