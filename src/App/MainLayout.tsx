@@ -15,7 +15,7 @@ export default function MainLayout() {
   return (
     <>
       <Outlet />
-      <div className="absolute  bottom-0 left-1/2 mb-12 flex -translate-x-1/2 gap-8 rounded-full bg-gray-700/70 px-8 py-4 backdrop-blur-md">
+      <div className="fixed  bottom-0 left-1/2 mb-12 flex -translate-x-1/2 gap-8 rounded-full bg-gray-700/70 px-8 py-4 backdrop-blur-md">
         <Link to="/personal">
           <HomeIcon
             className={cn(
