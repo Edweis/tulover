@@ -5,6 +5,7 @@ import {
 import { PlusIcon } from '@heroicons/react/24/solid';
 import dayjs from 'dayjs';
 import Button from '../../../components/Button.js';
+import Card from '../../../components/Card.js';
 import { Money, toCurrency, toCurrencyDetails } from './helpers.js';
 
 type Transaction = {
@@ -37,7 +38,7 @@ export default function Funds() {
   const money = { currency: 'EUR', value: 1933.9 };
   const { int, dec, name, symbol } = toCurrencyDetails(money);
   return (
-    <div className="grid gap-6 rounded-xl bg-gray-800 p-4">
+    <Card>
       <div>
         <div>
           <span className="text-3xl ">
@@ -45,7 +46,7 @@ export default function Funds() {
             {int}
           </span>
           {dec && <span>.{dec}</span>}
-          <ChevronDownIcon className="ml-4 mb-3 inline h-5 rounded-full bg-blue-500/50 fill-blue-500 " />
+          <ChevronDownIcon className="ml-4 mb-3 inline h-5 rounded-full bg-blue-900 fill-blue-500 " />
         </div>
         <div>{name}</div>
       </div>
@@ -88,7 +89,7 @@ export default function Funds() {
           </li>
         ))}
       </ol>
-      <button>See all</button>
-    </div>
+      <button className="text-blue-500">See all</button>
+    </Card>
   );
 }

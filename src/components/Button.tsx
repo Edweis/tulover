@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 const Button = forwardRef<unknown, React.HTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
-    const { className, ...others } = props;
+    const { className, children, ...others } = props;
     return (
       <button
         ref={ref as any}
@@ -13,7 +13,7 @@ const Button = forwardRef<unknown, React.HTMLAttributes<HTMLButtonElement>>(
         )}
         {...others}
       >
-        {props.children}
+        {children}
       </button>
     );
   },
