@@ -1,4 +1,4 @@
-import { PlusIcon } from '@heroicons/react/24/solid';
+import { PlusIcon, ShoppingBagIcon } from '@heroicons/react/24/solid';
 import cn from 'classnames';
 import Button from '../../components/Button.js';
 import Card from '../../components/Card.js';
@@ -36,7 +36,17 @@ export default function Cards() {
           </div>
         </div>
       </Card>
-      <Card></Card>
+      <Card>
+        <div className="flex items-center gap-4">
+          <ShoppingBagIcon className="h-12 opacity-70" />
+          <div className="grid">
+            <span>Pay securely with Shopper</span>
+            <span className="text-muted">
+              Autofill your card details at checkout
+            </span>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 }
