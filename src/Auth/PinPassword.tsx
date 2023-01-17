@@ -4,7 +4,6 @@ import { BackspaceIcon, FingerPrintIcon } from "@heroicons/react/24/solid";
 import useLoading from "../lib/use-loading.js";
 function KeyBoard(props: {
   hasStarted: boolean;
-  loading: boolean;
   onClick: (value: number | null) => void;
 }) {
   const options = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -17,7 +16,7 @@ function KeyBoard(props: {
     []
   );
   return (
-    <div className="grid grid-cols-3 w-full text-center ">
+    <div className={"grid grid-cols-3 w-full text-center "}>
       {options.map((n) => (
         <Block value={n} key={n}>
           {n}
@@ -58,13 +57,14 @@ function Status(props: { length: number; loading: boolean }) {
 
 export default function PinPassword(props: { onSuccess: () => void }) {
   const [pass, setPass] = useState("");
-  const [loading, signIn] = useLoading(async () =>
-    new Promise((res) => setTimeout(res, 2000)).then(() => setPass(""))
-  );
+  const [loading, signIn] = useLoading(async () => {
+    await new Promise((res) => setTimeout(res, 2000));
+    if (pass === "2558") props.onSuccess();
+    setPass("");
+  });
   useEffect(() => {
     if (pass.length === 4) signIn();
   }, [pass.length]);
-  console.log({ pass, loading });
   return (
     <div className="flex items-center flex-col min-h-screen justify-between py-8">
       <div className="rounded-full bg-gray-500 h-14 w-14 flex items-center justify-center">
@@ -73,7 +73,6 @@ export default function PinPassword(props: { onSuccess: () => void }) {
       <div className="text-xl">Welcome back, François</div>
       <Status length={pass.length} loading={loading} />
       <KeyBoard
-        loading={loading}
         hasStarted={pass.length > 0}
         onClick={(value) =>
           setPass((p) =>
