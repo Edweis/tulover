@@ -1,14 +1,14 @@
-import MainLayout from "./App/MainLayout.js";
-import { useState } from "react";
-import PinPassword from "./Auth/PinPassword.js";
-import { Routes, Route, Navigate } from "react-router-dom";
-import PersonalLayout from "./App/Personal/Layout.js";
+import { useState } from 'react';
+import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
+import MainLayout from './App/MainLayout.js';
+import PinPassword from './Auth/PinPassword.js';
+import PersonalLayout from './App/Personal/Layout.js';
+import Accounts from './App/Personal/Accounts/index.js';
+import Cards from './App/Personal/Cards.js';
+
 const MOCK_USER = {
   id: 123212,
 };
-import { BrowserRouter } from "react-router-dom";
-import Accounts from "./App/Personal/Accounts.js";
-import Cards from "./App/Personal/Cards.js";
 
 export default function App() {
   // const [auth, setAuth] = useState<typeof MOCK_USER | null>(null);
@@ -27,16 +27,18 @@ export default function App() {
           }
         />
         {auth == null && <Route path="*" element={<Navigate to="/login" />} />}
-        <Route element={<MainLayout />}>
-          <Route path="personal" element={<PersonalLayout />}>
-            <Route path="accounts" element={<Accounts />} />
-            <Route path="cards" element={<Cards />} />
-            <Route index element={<Navigate to="accounts" />} />
+        {auth != null && (
+          <Route element={<MainLayout />}>
+            <Route path="personal" element={<PersonalLayout />}>
+              <Route path="accounts" element={<Accounts />} />
+              <Route path="cards" element={<Cards />} />
+              <Route index element={<Navigate to="accounts" />} />
+            </Route>
+            <Route path="transfer" element={<div>Transfer</div>}></Route>
+            <Route path="hub" element={<div>Hub</div>}></Route>
+            <Route path="*" element={<Navigate to="personal" />} />
           </Route>
-          <Route path="transfer" element={<div>Transfer</div>}></Route>
-          <Route path="hub" element={<div>Hub</div>}></Route>
-          <Route path="*" element={<Navigate to="personal" />} />
-        </Route>
+        )}
       </Routes>
     </BrowserRouter>
   );
