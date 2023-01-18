@@ -77,7 +77,7 @@ export default function PinPassword(props: { onSuccess: () => void }) {
   }, [pass.length]);
   return (
     <div className="flex min-h-screen flex-col items-center justify-between py-8">
-      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gray-300">
+      <div className="bg-gray-muted flex h-14 w-14 items-center justify-center rounded-full">
         FR
       </div>
       <div className="text-xl">Welcome back, François</div>

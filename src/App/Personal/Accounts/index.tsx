@@ -5,6 +5,7 @@ export default function Accounts() {
     <div className="grid gap-8">
       <Funds />
       <Funds />
+      <Funds />
     </div>
   );
 }

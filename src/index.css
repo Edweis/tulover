@@ -32,6 +32,6 @@
 
 @layer components {
   .text-muted {
-    @apply text-gray-500 text-sm
+    @apply text-gray-muted text-sm
   }
 }

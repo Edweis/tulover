@@ -68,7 +68,7 @@ export default function Funds() {
       <ol className="flex flex-col gap-8">
         {txs.map((tx) => (
           <li key={tx.date} className="flex">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-500 text-black">
+            <div className="bg-gray-muted flex h-12 w-12 items-center justify-center rounded-full text-black">
               {tx.name
                 .split(' ')
                 .map((e) => e.slice(0, 1).toUpperCase())

@@ -10,7 +10,7 @@ const Card = forwardRef<
   return (
     <div
       ref={ref as any}
-      className="grid gap-6 rounded-xl bg-gray-800 p-4"
+      className="grid gap-6 rounded-xl bg-gray-500 p-4"
       {...others}
     >
       {children}
