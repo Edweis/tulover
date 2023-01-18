@@ -5,6 +5,7 @@ import PinPassword from './Auth/PinPassword.js';
 import PersonalLayout from './App/Personal/Layout.js';
 import Accounts from './App/Personal/Accounts/index.js';
 import Cards from './App/Personal/Cards.js';
+import Transfer from './App/Transfer/index.js';
 
 const MOCK_USER = {
   id: 123212,
@@ -34,7 +35,7 @@ export default function App() {
               <Route path="cards" element={<Cards />} />
               <Route index element={<Navigate to="accounts" />} />
             </Route>
-            <Route path="transfer" element={<div>Transfer</div>}></Route>
+            <Route path="transfer" element={<Transfer />}></Route>
             <Route path="hub" element={<div>Hub</div>}></Route>
             <Route path="*" element={<Navigate to="personal" />} />
           </Route>

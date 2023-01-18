@@ -1,13 +1,9 @@
 import {
   ArrowsUpDownIcon,
-  BellIcon,
-  ChartBarIcon,
   Cog6ToothIcon,
   HomeIcon,
-  StarIcon,
 } from '@heroicons/react/24/solid';
 import { Link, useLocation, Outlet } from 'react-router-dom';
-import React from 'react';
 import cn from 'classnames';
 
 export default function MainLayout() {

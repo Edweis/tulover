@@ -7,6 +7,7 @@ import {
 } from '@heroicons/react/24/solid';
 import { Link, useLocation, Outlet } from 'react-router-dom';
 import React from 'react';
+import SearchInput from '../../components/SearchInput.js';
 
 export default function PersonalLayout() {
   const { pathname } = useLocation();
@@ -22,13 +23,7 @@ export default function PersonalLayout() {
           <StarIcon className="h-6" />
           <BellIcon className="h-6" />
         </div>
-        <div className="flex w-full gap-2 rounded-md bg-gray-800 px-4 py-2 ">
-          <MagnifyingGlassIcon className="fill-gray-muted h-6" />
-          <input
-            className="w-full bg-inherit font-light"
-            placeholder="Search"
-          />
-        </div>
+        <SearchInput placeholder="Search" />
         <ol className="flex gap-4 overflow-y-scroll text-sm">
           <Link
             className={cn(

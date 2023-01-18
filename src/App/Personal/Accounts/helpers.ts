@@ -28,4 +28,4 @@ export const toCurrency = ({ currency, value }: Money) =>
     style: 'currency',
     currency,
     currencyDisplay: 'narrowSymbol',
-  }).format(value);
+  }).format(value * Math.sign(value));
