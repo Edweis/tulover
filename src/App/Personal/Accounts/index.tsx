@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router-dom';
+import ModalUp from '../../../components/ModalUp.js';
 import Funds from './Funds.js';
 
 export default function Accounts() {
@@ -6,6 +8,9 @@ export default function Accounts() {
       <Funds />
       <Funds />
       <Funds />
+      <ModalUp>
+        <Outlet />
+      </ModalUp>
     </div>
   );
 }

@@ -66,7 +66,7 @@ export default function Funds() {
       </div>
       <ol className="flex flex-col gap-8">
         {txs.map((tx) => (
-          <TransactionLine tx={tx} />
+          <TransactionLine tx={tx} key={tx.id} />
         ))}
       </ol>
       <button className="text-blue-500">See all</button>

@@ -1,10 +1,5 @@
 import cn from 'classnames';
-import {
-  BellIcon,
-  ChartBarIcon,
-  MagnifyingGlassIcon,
-  StarIcon,
-} from '@heroicons/react/24/solid';
+import { BellIcon, ChartBarIcon, StarIcon } from '@heroicons/react/24/solid';
 import { Link, useLocation, Outlet } from 'react-router-dom';
 import React from 'react';
 import SearchInput from '../../components/SearchInput.js';
