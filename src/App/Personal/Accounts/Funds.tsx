@@ -4,30 +4,29 @@ import {
 } from '@heroicons/react/20/solid';
 import { PlusIcon } from '@heroicons/react/24/solid';
 import dayjs from 'dayjs';
+import { Link } from 'react-router-dom';
 import Button from '../../../components/Button.js';
 import Card from '../../../components/Card.js';
 import { Money, toCurrency, toCurrencyDetails } from './helpers.js';
+import TransactionLine, { Transaction } from './TransactionLine.js';
 
-type Transaction = {
-  name: string;
-  date: string;
-  amount: Money;
-  amountReq?: Money;
-};
 const txs: Transaction[] = [
   {
+    id: 1,
     name: 'Tada Global',
     amount: { currency: 'EUR', value: -13.78 },
     amountReq: { currency: 'SGD', value: -19.42 },
     date: '2023-01-14T18:09:00+08:00',
   },
   {
+    id: 2,
     name: 'Sold EUR for SGD',
     amount: { currency: 'EUR', value: -100 },
     amountReq: { currency: 'SGD', value: -142.02 },
     date: '2023-01-14T16:30:00+08:00',
   },
   {
+    id: 3,
     name: 'Cebu Pacific Air',
     amount: { currency: 'EUR', value: -102.98 },
     date: '2023-01-13T09:51:00+08:00',
@@ -67,26 +66,7 @@ export default function Funds() {
       </div>
       <ol className="flex flex-col gap-8">
         {txs.map((tx) => (
-          <li key={tx.date} className="flex">
-            <div className="bg-gray-muted flex h-12 w-12 items-center justify-center rounded-full text-black">
-              {tx.name
-                .split(' ')
-                .map((e) => e.slice(0, 1).toUpperCase())
-                .join('')}
-            </div>
-            <div className="ml-4 grid">
-              <span>{tx.name}</span>
-              <span className="text-muted">
-                {dayjs(tx.date).format('D MMMM[, ]HH:mm')}
-              </span>
-            </div>
-            <div className="ml-auto grid text-right">
-              <span>{toCurrency(tx.amount)}</span>
-              <span className="text-muted">
-                {tx.amountReq && toCurrency(tx.amountReq)}
-              </span>
-            </div>
-          </li>
+          <TransactionLine tx={tx} />
         ))}
       </ol>
       <button className="text-blue-500">See all</button>
