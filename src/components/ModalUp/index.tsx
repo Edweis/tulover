@@ -37,7 +37,10 @@ export default function ModalUp(
       dragSnapToOrigin
       dragConstraints={{ top: -MARGIN_TOP_PX, bottom: screenHeight - 100 }}
       dragTransition={{ power: 0.1, timeConstant: 100 }}
-      className={cn('fixed inset-0 z-20', props.className)}
+      className={cn(
+        'max-w-[640px] mx-auto fixed inset-0 z-20',
+        props.className,
+      )}
       style={{ height: '200vh' }}
     >
       {props.withClose && (
