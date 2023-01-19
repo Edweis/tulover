@@ -8,9 +8,7 @@ export default function Accounts() {
       <Funds />
       <Funds />
       <Funds />
-      <ModalUp>
-        <Outlet />
-      </ModalUp>
+      <Outlet />
     </div>
   );
 }
