@@ -1,7 +1,8 @@
+import { Money } from '../../../lib/database.js';
+
 export const capitalize = (str: string) =>
   str.charAt(0).toLocaleUpperCase() + str.split('').slice(1).join('');
 
-export type Money = { currency: string; value: number };
 export const toCurrencyDetails = (money: Money) => {
   const { currency, value } = money;
   const [{ value: symbol }, ...rest] = new Intl.NumberFormat(undefined, {

@@ -1,14 +1,8 @@
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
-import { Money, toCurrency } from './helpers.js';
+import { toCurrency } from './helpers.js';
+import { Transaction } from '../../../lib/database.js';
 
-export type Transaction = {
-  id: number;
-  name: string;
-  date: string;
-  amount: Money;
-  amountReq?: Money;
-};
 export default function TransactionLine({ tx }: { tx: Transaction }) {
   return (
     <Link to={`transactions/${tx.id.toString()}`}>

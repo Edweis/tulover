@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import ModalUp from '../../../components/ModalUp.js';
+import ModalUp from '../../../components/ModalUp/index.js';
 import Funds from './Funds.js';
 
 export default function Accounts() {
