@@ -9,9 +9,9 @@ import cn from 'classnames';
 export default function MainLayout() {
   const { pathname } = useLocation();
   return (
-    <>
+    <div className="px-4 py-2">
       <Outlet />
-      <div className="fixed bottom-0 left-1/2 z-10 mb-12 flex -translate-x-1/2 gap-8 rounded-full bg-white/10 px-8 py-4 backdrop-blur-md">
+      <div className="fixed bottom-0 left-1/2 z-10 mx-2 mb-8 flex -translate-x-1/2 gap-8 rounded-full bg-white/10 px-8 py-4 backdrop-blur-md">
         <Link to="/personal">
           <HomeIcon
             className={cn(
@@ -37,6 +37,6 @@ export default function MainLayout() {
           />
         </Link>
       </div>
-    </>
+    </div>
   );
 }

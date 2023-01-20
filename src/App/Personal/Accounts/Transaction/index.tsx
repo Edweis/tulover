@@ -5,10 +5,10 @@ import {
 } from '@heroicons/react/20/solid';
 import dayjs from 'dayjs';
 import { useParams } from 'react-router-dom';
-import Card from '../../../components/Card.js';
-import ModalUpFull from '../../../components/ModalUp/ModalUpFull.js';
-import db from '../../../lib/database.js';
-import { toCurrency, toCurrencyDetails } from './helpers.js';
+import Card from '../../../../components/Card.js';
+import ModalUpFull from '../../../../components/ModalUp/ModalUpFull.js';
+import db from '../../../../lib/database.js';
+import { toCurrency, toCurrencyDetails } from '../helpers.js';
 
 export default function Transaction() {
   const { id } = useParams<{ id: string }>();

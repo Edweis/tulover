@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import { BellIcon, ChartBarIcon, StarIcon } from '@heroicons/react/24/solid';
 import { Link, useLocation, Outlet } from 'react-router-dom';
-import React from 'react';
 import SearchInput from '../../components/SearchInput.js';
 
 export default function PersonalLayout() {
@@ -11,9 +10,11 @@ export default function PersonalLayout() {
     <>
       <div className="mb-4 flex flex-col gap-4">
         <div className="flex w-full items-center justify-end gap-4">
-          <div className="bg-gray-muted mr-auto flex  h-8 w-8 items-center justify-center rounded-full text-sm">
-            FR
-          </div>
+          <Link to="me" className="mr-auto">
+            <div className="bg-gray-muted  flex  h-8 w-8 items-center justify-center rounded-full text-sm">
+              FR
+            </div>
+          </Link>
           <ChartBarIcon className="h-6" />
           <StarIcon className="h-6" />
           <BellIcon className="h-6" />

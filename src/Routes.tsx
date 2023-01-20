@@ -6,7 +6,8 @@ import PersonalLayout from './App/Personal/Layout.js';
 import Accounts from './App/Personal/Accounts/index.js';
 import Cards from './App/Personal/Cards.js';
 import Transfer from './App/Transfer/index.js';
-import Transaction from './App/Personal/Accounts/Transaction.js';
+import Transaction from './App/Personal/Accounts/Transaction/index.js';
+import AccountDetails from './App/Personal/Accounts/Transaction/AccountDetails.js';
 
 const MOCK_USER = {
   id: 123212,
@@ -32,6 +33,7 @@ export default function App() {
         {auth != null && (
           <Route element={<MainLayout />}>
             <Route path="personal" element={<PersonalLayout />}>
+              <Route path="me" element={<AccountDetails />} />
               <Route path="accounts" element={<Accounts />}>
                 <Route path="transactions/:id" element={<Transaction />} />
               </Route>
