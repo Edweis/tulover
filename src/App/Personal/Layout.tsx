@@ -1,6 +1,13 @@
 import cn from 'classnames';
 import { BellIcon, ChartBarIcon, StarIcon } from '@heroicons/react/24/solid';
-import { Link, useLocation, Outlet, Routes, Route } from 'react-router-dom';
+import {
+  Link,
+  useLocation,
+  Outlet,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import SearchInput from '../../components/SearchInput.js';
 import AccountDetails from './Accounts/Transaction/AccountDetails.js';
@@ -64,6 +71,7 @@ export default function PersonalLayout() {
           <Route path="stocks" element={wrapTranslateX(<Stocks />)} />
           <Route path="crypto" element={wrapTranslateX(<div>Crypto</div>)} />
           <Route path="vaults" element={wrapTranslateX(<div>Vault</div>)} />
+          <Route index element={<Navigate to="accounts" />} />
         </Routes>
       </AnimatePresence>
     </>

@@ -10,24 +10,17 @@ import { AnimatePresence } from 'framer-motion';
 import MainLayout from './App/MainLayout.js';
 import PinPassword from './Auth/PinPassword.js';
 import PersonalLayout from './App/Personal/Layout.js';
-import Accounts from './App/Personal/Accounts/index.js';
-import Cards from './App/Personal/Cards.js';
 import Transfer from './App/Transfer/index.js';
-import Transaction from './App/Personal/Accounts/Transaction/index.js';
-import AccountDetails from './App/Personal/Accounts/Transaction/AccountDetails.js';
 import FloatingMenu from './App/FloatingMenu.js';
-import Stocks from './App/Personal/Stocks.js';
 import { wrapTranslateX } from './components/transition/TranslateX.js';
 
-const MOCK_USER = {
-  id: 123212,
-};
+const MOCK_USER = { id: 123212 };
+const DEFAULT_USER = import.meta.env.DEV ? MOCK_USER : null;
 
 export default function App() {
-  // const [auth, setAuth] = useState<typeof MOCK_USER | null>(null);
   const outlet = useOutletContext();
   console.log({ outlet });
-  const [auth, setAuth] = useState<typeof MOCK_USER | null>(MOCK_USER);
+  const [auth, setAuth] = useState<typeof MOCK_USER | null>(DEFAULT_USER);
   const location = useLocation();
   const transitionKey = location.pathname.split('/')[1]; // we only want to transition when the first item of the path changes so we can do nested transition in nested components
   return (
@@ -52,15 +45,9 @@ export default function App() {
               <Route
                 path="personal/*"
                 element={wrapTranslateX(<PersonalLayout />)}
-              ></Route>
-              <Route
-                path="transfer"
-                element={wrapTranslateX(<Transfer />)}
-              ></Route>
-              <Route
-                path="hub"
-                element={wrapTranslateX(<div>Hub</div>)}
-              ></Route>
+              />
+              <Route path="transfer" element={wrapTranslateX(<Transfer />)} />
+              <Route path="hub" element={wrapTranslateX(<div>Hub</div>)} />
               <Route path="*" element={<Navigate to="personal/accounts" />} />
             </Route>
           )}
