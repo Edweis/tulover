@@ -62,7 +62,8 @@ export default function PersonalLayout() {
           </Route>
           <Route path="cards" element={wrapTranslateX(<Cards />)} />
           <Route path="stocks" element={wrapTranslateX(<Stocks />)} />
-          <Route path="stocks" element={wrapTranslateX(<Stocks />)} />
+          <Route path="crypto" element={wrapTranslateX(<div>Crypto</div>)} />
+          <Route path="vaults" element={wrapTranslateX(<div>Vault</div>)} />
         </Routes>
       </AnimatePresence>
     </>
