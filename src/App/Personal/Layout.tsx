@@ -1,13 +1,19 @@
 import cn from 'classnames';
 import { BellIcon, ChartBarIcon, StarIcon } from '@heroicons/react/24/solid';
 import { Link, useLocation, Outlet } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SearchInput from '../../components/SearchInput.js';
 
 export default function PersonalLayout() {
   const { pathname } = useLocation();
   const subPath = pathname.replace('/personal', '');
   return (
-    <>
+    <motion.div
+      initial={{ x: -window.innerWidth }}
+      animate={{ x: 0 }}
+      exit={{ x: -window.innerWidth }}
+      transition={{ type: 'linear' }}
+    >
       <div className="mb-4 flex flex-col gap-4">
         <div className="flex w-full items-center justify-end gap-4">
           <Link to="me" className="mr-auto">
@@ -69,6 +75,6 @@ export default function PersonalLayout() {
         </ol>
       </div>
       <Outlet />
-    </>
+    </motion.div>
   );
 }

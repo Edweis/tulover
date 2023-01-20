@@ -2,9 +2,11 @@ import cn from 'classnames';
 import { QrCodeIcon, UserIcon, PlusIcon } from '@heroicons/react/20/solid';
 import React from 'react';
 import dayjs from 'dayjs';
+import { motion } from 'framer-motion';
 import SearchInput from '../../components/SearchInput.js';
 import Card from '../../components/Card.js';
-import { Money, toCurrency } from '../Personal/Accounts/helpers.js';
+import { toCurrency } from '../Personal/Accounts/helpers.js';
+import { Money } from '../../lib/database.js';
 
 type Transfer = {
   user: string;
@@ -28,12 +30,12 @@ const transfers: Transfer[] = [
     amount: { currency: 'EUR', value: 70 },
   },
   {
-    date: '2022-08-29',
+    date: '2022-08-28',
     user: 'Manon Ravier',
     amount: { currency: 'EUR', value: -200 },
   },
   {
-    date: '2022-08-29',
+    date: '2022-08-25',
     user: 'BNP Bank',
     amount: { currency: 'EUR', value: -744 },
   },
@@ -41,7 +43,13 @@ const transfers: Transfer[] = [
 
 export default function Transfer() {
   return (
-    <div className="grid gap-8">
+    <motion.div
+      className="grid gap-8"
+      initial={{ x: window.innerWidth }}
+      animate={{ x: 0 }}
+      exit={{ x: window.innerWidth }}
+      transition={{ type: 'linear' }}
+    >
       <div className="grid gap-3">
         <div className="flex justify-between">
           <h1 className="text-4xl font-medium">Transfer</h1>
@@ -62,31 +70,34 @@ export default function Transfer() {
       </div>
       <Card>
         <ol className="flex flex-col gap-8">
-          {[...transfers, ...transfers, ...transfers, ...transfers].map((t) => (
-            <li key={t.date} className="flex">
-              <div className="bg-gray-muted flex h-12 w-12 items-center justify-center rounded-full text-black">
-                {t.user
-                  .split(' ')
-                  .map((e) => e.slice(0, 1).toUpperCase())
-                  .join('')}
-              </div>
-              <div className="ml-4 grid">
-                <span>{t.user}</span>
-                <span className="text-muted">
-                  {t.amount.value < 0 && `💸 You sent ${toCurrency(t.amount)}`}
-                  {t.amount.value > 0 &&
-                    `🤑 You recieved ${toCurrency(t.amount)}`}
-                </span>
-              </div>
-              <div className="ml-auto grid text-right">
-                <span className="text-muted">
-                  {dayjs(t.date).format('D MMM YYYY')}
-                </span>
-              </div>
-            </li>
-          ))}
+          {[...transfers, ...transfers, ...transfers, ...transfers].map(
+            (t, i) => (
+              <li key={`${t.date}i${i}`} className="flex">
+                <div className="bg-gray-muted flex h-12 w-12 items-center justify-center rounded-full text-black">
+                  {t.user
+                    .split(' ')
+                    .map((e) => e.slice(0, 1).toUpperCase())
+                    .join('')}
+                </div>
+                <div className="ml-4 grid">
+                  <span>{t.user}</span>
+                  <span className="text-muted">
+                    {t.amount.value < 0 &&
+                      `💸 You sent ${toCurrency(t.amount)}`}
+                    {t.amount.value > 0 &&
+                      `🤑 You recieved ${toCurrency(t.amount)}`}
+                  </span>
+                </div>
+                <div className="ml-auto grid text-right">
+                  <span className="text-muted">
+                    {dayjs(t.date).format('D MMM YYYY')}
+                  </span>
+                </div>
+              </li>
+            ),
+          )}
         </ol>
       </Card>
-    </div>
+    </motion.div>
   );
 }
