@@ -3,7 +3,7 @@ import {
   EllipsisHorizontalIcon,
 } from '@heroicons/react/20/solid';
 import { PlusIcon } from '@heroicons/react/24/solid';
-import Button from '../../../components/Button.js';
+import Button, { ButtonAnchor } from '../../../components/Button.js';
 import Card from '../../../components/Card.js';
 import { toCurrencyDetails } from './helpers.js';
 import TransactionLine from './TransactionLine.js';
@@ -26,10 +26,10 @@ export default function Funds() {
         <div>{name}</div>
       </div>
       <div className="flex gap-4">
-        <Button>
+        <ButtonAnchor to="../add-money">
           <PlusIcon className="w-6" />
           Add Money
-        </Button>
+        </ButtonAnchor>
         <Button>
           <EllipsisHorizontalIcon className="w-6" />
         </Button>

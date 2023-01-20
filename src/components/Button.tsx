@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import cn from 'classnames';
+import { Link, LinkProps } from 'react-router-dom';
 
 type ExtraProps = { variant?: keyof typeof STYLES };
 
@@ -26,5 +27,24 @@ const Button = forwardRef<
     </button>
   );
 });
+
+export const ButtonAnchor = forwardRef<unknown, ExtraProps & LinkProps>(
+  (props, ref) => {
+    const { className, children, variant, ...others } = props;
+    return (
+      <Link
+        ref={ref as any}
+        className={cn(
+          'gap-1 flex items-center rounded-xl px-5  h-10',
+          STYLES[variant || 'secondary'],
+          className,
+        )}
+        {...others}
+      >
+        {children}
+      </Link>
+    );
+  },
+);
 
 export default Button;

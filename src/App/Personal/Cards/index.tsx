@@ -2,8 +2,8 @@ import { PlusIcon, ShoppingBagIcon } from '@heroicons/react/24/solid';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
-import Button from '../../components/Button.js';
-import Card from '../../components/Card.js';
+import Button from '../../../components/Button.js';
+import Card from '../../../components/Card.js';
 
 const CardIcon = (props: { className?: string }) => (
   <div className={cn('h-8 w-12 rounded ', props.className)} />

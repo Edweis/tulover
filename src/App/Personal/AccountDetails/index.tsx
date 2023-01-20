@@ -10,25 +10,13 @@ import {
 } from '@heroicons/react/20/solid';
 import { QuestionMarkCircleIcon } from '@heroicons/react/24/solid';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import Button from '../../../../components/Button.js';
-import Card from '../../../../components/Card.js';
+import Button from '../../../components/Button.js';
+import Card from '../../../components/Card.js';
+import SlideRight from '../../../components/transition/SlideRight.js';
 
 export default function AccountDetails() {
   return (
-    <motion.div
-      className="fixed inset-0 flex flex-col gap-4 overflow-y-scroll  bg-black px-4"
-      initial={{ translateX: '100%' }}
-      animate={{ translateX: 0 }}
-      exit={{ translateX: '100%' }}
-      transition={{ type: 'easeIn' }}
-    >
-      <div className="sticky top-0 bg-black/50 py-4 backdrop-blur-md">
-        <Link to="..">
-          <ArrowLeftIcon className="absolute h-8" />
-        </Link>
-        <div className="h-8 w-full pt-1 text-center">François Rullière</div>
-      </div>
+    <SlideRight title="François Rullière">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl">François Rullière</h1>
@@ -102,6 +90,6 @@ export default function AccountDetails() {
           <span>About us</span>
         </div>
       </Card>
-    </motion.div>
+    </SlideRight>
   );
 }
