@@ -61,7 +61,7 @@ export default function App() {
                 path="hub"
                 element={wrapTranslateX(<div>Hub</div>)}
               ></Route>
-              {/* <Route path="*" element={<Navigate to="personal/accounts" />} /> */}
+              <Route path="*" element={<Navigate to="personal/accounts" />} />
             </Route>
           )}
         </Routes>
