@@ -1,12 +1,22 @@
 import cn from 'classnames';
 import { BellIcon, ChartBarIcon, StarIcon } from '@heroicons/react/24/solid';
 import { Link, useLocation, Outlet } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import SearchInput from '../../components/SearchInput.js';
 
+const links = [
+  { path: 'accounts', label: 'Accounts' },
+  { path: 'cards', label: 'Cards' },
+  { path: 'stocks', label: 'Stocks' },
+  { path: 'crypto', label: 'Crypto' },
+  { path: 'vaults', label: 'Vaults' },
+];
+const boolToNum = (b: boolean) => (Number(b) - 0.5) * 2;
 export default function PersonalLayout() {
   const { pathname } = useLocation();
-  const subPath = pathname.replace('/personal', '');
+  const subPath = pathname.replace('/personal/', '');
+  const currentPathIndex = links.findIndex((l) => subPath === l.path);
+  console.log('xxxxx', window.history.state.usr, { currentPathIndex, subPath });
   return (
     <motion.div
       initial={{ x: -window.innerWidth }}
@@ -27,54 +37,24 @@ export default function PersonalLayout() {
         </div>
         <SearchInput placeholder="Search" />
         <ol className="flex gap-4 overflow-y-scroll text-sm">
-          <Link
-            className={cn(
-              'px-4 py-2',
-              subPath === '/accounts' && 'bg-gray-500 rounded-xl',
-            )}
-            to="accounts"
-          >
-            Accounts
-          </Link>
-          <Link
-            className={cn(
-              'px-4 py-2',
-              subPath === '/cards' && 'bg-gray-500 rounded-xl',
-            )}
-            to="cards"
-          >
-            Cards
-          </Link>
-          <Link
-            className={cn(
-              'px-4 py-2',
-              subPath === '/stocks' && 'bg-gray-500 rounded-xl',
-            )}
-            to="stocks"
-          >
-            Stocks
-          </Link>
-          <Link
-            className={cn(
-              'px-4 py-2',
-              subPath === '/crypto' && 'bg-gray-500 rounded-xl',
-            )}
-            to="crypto"
-          >
-            Crypto
-          </Link>
-          <Link
-            className={cn(
-              'px-4 py-2',
-              subPath === '/vaults' && 'bg-gray-500 rounded-xl',
-            )}
-            to="vaults"
-          >
-            Vaults
-          </Link>
+          {links.map((l, i) => (
+            <Link
+              key={l.path}
+              to={l.path}
+              state={{ direction: boolToNum(currentPathIndex < i) }}
+              className={cn(
+                'px-4 py-2',
+                subPath === l.path && 'bg-gray-500 rounded-xl',
+              )}
+            >
+              {l.label}
+            </Link>
+          ))}
         </ol>
       </div>
-      <Outlet />
+      <AnimatePresence initial={false}>
+        <Outlet />
+      </AnimatePresence>
     </motion.div>
   );
 }

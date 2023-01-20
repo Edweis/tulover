@@ -1,15 +1,23 @@
 import { PlusIcon, ShoppingBagIcon } from '@heroicons/react/24/solid';
 import cn from 'classnames';
+import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import Button from '../../components/Button.js';
 import Card from '../../components/Card.js';
 
 const CardIcon = (props: { className?: string }) => (
   <div className={cn('h-8 w-12 rounded ', props.className)} />
 );
-
 export default function Cards() {
+  const direction = window.history.state.usr.direction || 1;
   return (
-    <div className="grid gap-8">
+    <motion.div
+      className="grid gap-8"
+      initial={{ x: direction * window.innerWidth }}
+      animate={{ x: 0 }}
+      exit={{ x: direction * window.innerWidth }}
+      transition={{ type: 'linear' }}
+    >
       <Card>
         <div className="flex justify-between">
           <Button>
@@ -47,6 +55,6 @@ export default function Cards() {
           </div>
         </div>
       </Card>
-    </div>
+    </motion.div>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation, Outlet } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import MainLayout from './App/MainLayout.js';
 import PinPassword from './Auth/PinPassword.js';
@@ -10,6 +10,7 @@ import Transfer from './App/Transfer/index.js';
 import Transaction from './App/Personal/Accounts/Transaction/index.js';
 import AccountDetails from './App/Personal/Accounts/Transaction/AccountDetails.js';
 import FloatingMenu from './App/FloatingMenu.js';
+import Stocks from './App/Personal/Stocks.js';
 
 const MOCK_USER = {
   id: 123212,
@@ -19,10 +20,11 @@ export default function App() {
   // const [auth, setAuth] = useState<typeof MOCK_USER | null>(null);
   const [auth, setAuth] = useState<typeof MOCK_USER | null>(MOCK_USER);
   const location = useLocation();
+  const transitionKey = location.pathname.split('/')[1]; // we only want to transition when the first item of the path changes so we can do nested transition in nested components
   return (
     <>
       <AnimatePresence initial={false}>
-        <Routes location={location} key={location.pathname}>
+        <Routes location={location} key={transitionKey}>
           <Route
             path="/login/*"
             element={
@@ -44,6 +46,7 @@ export default function App() {
                   <Route path="transactions/:id" element={<Transaction />} />
                 </Route>
                 <Route path="cards" element={<Cards />} />
+                <Route path="stocks" element={<Stocks />} />
               </Route>
               <Route path="transfer" element={<Transfer />}></Route>
               <Route path="hub" element={<div>Hub</div>}></Route>
