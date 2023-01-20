@@ -9,15 +9,8 @@ const CardIcon = (props: { className?: string }) => (
   <div className={cn('h-8 w-12 rounded ', props.className)} />
 );
 export default function Cards() {
-  const direction = window.history.state.usr.direction || 1;
   return (
-    <motion.div
-      className="grid gap-8"
-      initial={{ x: direction * window.innerWidth }}
-      animate={{ x: 0 }}
-      exit={{ x: direction * window.innerWidth }}
-      transition={{ type: 'linear' }}
-    >
+    <div className="grid gap-8">
       <Card>
         <div className="flex justify-between">
           <Button>
@@ -55,6 +48,6 @@ export default function Cards() {
           </div>
         </div>
       </Card>
-    </motion.div>
+    </div>
   );
 }

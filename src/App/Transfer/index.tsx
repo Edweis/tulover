@@ -43,13 +43,7 @@ const transfers: Transfer[] = [
 
 export default function Transfer() {
   return (
-    <motion.div
-      className="grid gap-8"
-      initial={{ x: window.innerWidth }}
-      animate={{ x: 0 }}
-      exit={{ x: window.innerWidth }}
-      transition={{ type: 'linear' }}
-    >
+    <div className="grid gap-8">
       <div className="grid gap-3">
         <div className="flex justify-between">
           <h1 className="text-4xl font-medium">Transfer</h1>
@@ -98,6 +92,6 @@ export default function Transfer() {
           )}
         </ol>
       </Card>
-    </motion.div>
+    </div>
   );
 }
