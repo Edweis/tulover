@@ -1,9 +1,5 @@
 import { ClipboardDocumentIcon } from '@heroicons/react/20/solid';
-import {
-  BanknotesIcon,
-  ClipboardIcon,
-  ShieldCheckIcon,
-} from '@heroicons/react/24/solid';
+import { BanknotesIcon, ShieldCheckIcon } from '@heroicons/react/24/solid';
 import Card from '../../../components/Card.js';
 import SlideRight from '../../../components/transition/SlideRight.js';
 import database from '../../../lib/database.js';
