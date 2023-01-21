@@ -36,4 +36,13 @@ export default {
       return txs.find((t) => t.id === id);
     },
   },
+  bankAccount: {
+    get() {
+      return {
+        iban: 'LT44 3250 0494 6122 7478',
+        bic: 'REVOLT21',
+        name: 'François Rullière',
+      };
+    },
+  },
 };

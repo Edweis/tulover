@@ -13,8 +13,10 @@ import { Link } from 'react-router-dom';
 import Button from '../../../components/Button.js';
 import Card from '../../../components/Card.js';
 import SlideRight from '../../../components/transition/SlideRight.js';
+import database from '../../../lib/database.js';
 
 export default function AccountDetails() {
+  const bankAccount = database.bankAccount.get();
   return (
     <SlideRight title="François Rullière">
       <div className="flex items-center justify-between">
@@ -54,14 +56,13 @@ export default function AccountDetails() {
         <div className="flex justify-between">
           <span className="text-muted">IBAN</span>
           <span className="text-sm text-blue-500">
-            <DocumentDuplicateIcon className="inline w-6" /> LT44 3250 0494 6122
-            7478
+            <DocumentDuplicateIcon className="inline w-6" /> {bankAccount.iban}
           </span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted">BIC</span>
           <span className="text-sm text-blue-500">
-            <DocumentDuplicateIcon className="inline w-6" /> REVOLT21
+            <DocumentDuplicateIcon className="inline w-6" /> {bankAccount.bic}
           </span>
         </div>
       </Card>
