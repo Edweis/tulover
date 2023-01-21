@@ -17,7 +17,7 @@ export default function AddMoney() {
       </div>
       <div className="flex justify-between">
         <div className="text-muted">For cross-border tranfers only</div>
-        <div className="text-sn text-blue-500">Share</div>
+        <div className="text-sm text-blue-500">Share</div>
       </div>
       <Card>
         <div className="grid gap-2">
