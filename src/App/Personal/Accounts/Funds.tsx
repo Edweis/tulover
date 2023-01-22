@@ -30,9 +30,9 @@ export default function Funds() {
           <PlusIcon className="w-6" />
           Add Money
         </ButtonAnchor>
-        <Button>
+        <ButtonAnchor to="actions">
           <EllipsisHorizontalIcon className="w-6" />
-        </Button>
+        </ButtonAnchor>
       </div>
       <div className="text-muted flex justify-between">
         <span>Transactions</span>

@@ -13,6 +13,7 @@ import Transaction from './Accounts/Transaction/index.js';
 import Cards from './Cards/index.js';
 import Stocks from './Stocks/index.js';
 import AddMoney from './AddMoney/index.js';
+import AccountActions from './Accounts/AccountActions/index.js';
 
 const links = [
   { path: 'accounts', label: 'Accounts' },
@@ -25,7 +26,6 @@ export default function PersonalLayout() {
   const location = useLocation();
   const subPath = location.pathname.replace('/personal/', '');
   const currentPathIndex = links.findIndex((l) => subPath === l.path);
-  console.log('PersonalLayout', location.state);
   return (
     <>
       <div className="mb-4 flex flex-col gap-4">
@@ -67,6 +67,7 @@ export default function PersonalLayout() {
             element={wrapTranslateX(<Accounts />, 'accounts')}
           >
             <Route path="transactions/:id" element={<Transaction />} />
+            <Route path="actions" element={<AccountActions />} />
           </Route>
           <Route path="cards" element={wrapTranslateX(<Cards />, 'cards')} />
           <Route path="stocks" element={wrapTranslateX(<Stocks />, 'stocks')} />

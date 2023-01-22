@@ -13,10 +13,8 @@ function KeyBoard(props: {
       <div
         className="p-5 text-3xl"
         onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          console.log('Blocked Clicked !', e);
-          props.onClick(value);
+          window.navigator?.vibrate(200); // Does not work on iOs
+          return props.onClick(value);
         }}
       >
         {children}
