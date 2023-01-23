@@ -105,7 +105,7 @@ export default function Transfer() {
         </Card>
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="chat/:userId" element={<Chat />} />
         </Routes>

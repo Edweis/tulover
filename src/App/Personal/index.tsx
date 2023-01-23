@@ -58,7 +58,7 @@ export default function PersonalLayout() {
           ))}
         </ol>
       </div>
-      <AnimatePresence initial={true}>
+      <AnimatePresence initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="me" element={<AccountDetails />} />
           <Route path="add-money" element={<AddMoney />} />

@@ -32,6 +32,7 @@ export default function ModalUp(
   }, []);
   useEffect(() => {
     if (!closing) return;
+    /* We change the navigation once the animation is over */
     setTimeout(() => navigate(-1), 300);
   }, [closing]);
   return (
@@ -56,7 +57,7 @@ export default function ModalUp(
       dragConstraints={{ top: -marginTopPx, bottom: screenHeight - 100 }}
       dragTransition={{ power: 0.1, timeConstant: 100 }}
       className={cn(
-        'max-w-[640px] mx-auto fixed inset-0 z-20',
+        'max-w-[640px] mx-auto fixed inset-0 z-20 focus-visible:border-0',
         props.className,
       )}
       style={{ height: '200vh' }}
