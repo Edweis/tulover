@@ -9,7 +9,7 @@ import FloatingMenu from './App/FloatingMenu.js';
 import { wrapTranslateX } from './components/transition/TranslateX.js';
 
 const MOCK_USER = { id: 123212 };
-const DEFAULT_USER = !import.meta.env.DEV ? MOCK_USER : null;
+const DEFAULT_USER = import.meta.env.DEV ? MOCK_USER : null;
 
 export default function App() {
   const [auth, setAuth] = useState<typeof MOCK_USER | null>(DEFAULT_USER);
