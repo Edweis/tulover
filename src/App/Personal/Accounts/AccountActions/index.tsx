@@ -1,16 +1,12 @@
 import {
-  ArrowDownTrayIcon,
   ArrowPathIcon,
-  ChevronRightIcon,
   CircleStackIcon,
   InformationCircleIcon,
   NewspaperIcon,
-  PencilIcon,
   XCircleIcon,
 } from '@heroicons/react/20/solid';
 import Card from '../../../../components/Card.js';
 import ModalSlideUp from '../../../../components/ModalUp/ModalSlideUp.js';
-import ModalUpFull from '../../../../components/ModalUp/ModalUpFull.js';
 
 export default function AccountActions() {
   return (
