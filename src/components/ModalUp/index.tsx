@@ -1,4 +1,10 @@
-import { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import {
+  PropsWithChildren,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { motion } from 'framer-motion';
 import cn from 'classnames';
 import { useNavigate } from 'react-router-dom';
@@ -19,12 +25,20 @@ export default function ModalUp(
   const { marginTopPx } = props;
   const screenHeight = window.screen.availHeight;
   const [closing, setClosing] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    /* For onBlur to work, we need to focus on the modal when it's mounted first */
+    ref.current?.focus();
+  }, []);
   useEffect(() => {
     if (!closing) return;
     setTimeout(() => navigate(-1), 300);
   }, [closing]);
   return (
     <motion.div
+      ref={ref}
+      tabIndex={-1}
+      onBlur={() => setClosing(true)}
       initial={{ translateY: `${screenHeight}px` }}
       animate={{
         translateY: closing ? `${1.1 * screenHeight}px` : `${marginTopPx}px`,

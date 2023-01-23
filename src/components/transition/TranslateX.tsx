@@ -11,14 +11,12 @@ const variants = {
   slideIn: { x: 0 },
   slideOut: () => {
     const dir: Dir = window.history.state.usr?.[TRANSITION_DIR];
-    console.log('slideOut', { dir });
     if (dir === 'left') return { x: window.innerWidth };
     if (dir === 'right') return { x: -window.innerWidth };
     return { x: 0 };
   },
   before: () => {
     const dir: Dir = window.history.state.usr?.[TRANSITION_DIR];
-    console.log('before', { dir });
     if (dir === 'left') return { x: -window.innerWidth };
     if (dir === 'right') return { x: window.innerWidth };
     return { x: 0 };

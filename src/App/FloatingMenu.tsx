@@ -16,11 +16,7 @@ const menu = [
 export default function FloatingMenu() {
   const { pathname } = useLocation();
   const currentPathIndex = menu.findIndex((m) => pathname.startsWith(m.path));
-  console.log(
-    'FloatingMenu',
-    { currentPathIndex, pathname },
-    menu.map((m, i) => (currentPathIndex > i ? 'left' : 'right')),
-  );
+
   return (
     <div className="fixed top-[87vh] left-0 z-10 mb-8 flex translate-x-1/2 gap-8 rounded-full bg-white/10 px-8 py-4 backdrop-blur-md">
       {menu.map((m, i) => (
