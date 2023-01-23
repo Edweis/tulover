@@ -9,11 +9,12 @@ import {
   XCircleIcon,
 } from '@heroicons/react/20/solid';
 import Card from '../../../../components/Card.js';
+import ModalSlideUp from '../../../../components/ModalUp/ModalSlideUp.js';
 import ModalUpFull from '../../../../components/ModalUp/ModalUpFull.js';
 
 export default function AccountActions() {
   return (
-    <ModalUpFull>
+    <ModalSlideUp>
       <Card className="!gap-8 text-blue-500">
         <div>
           <ArrowPathIcon className="mr-4 inline h-6" /> Exchange
@@ -31,6 +32,6 @@ export default function AccountActions() {
           <CircleStackIcon className="mr-4 inline h-6" /> Add new account
         </div>
       </Card>
-    </ModalUpFull>
+    </ModalSlideUp>
   );
 }

@@ -6,13 +6,17 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 
 /* Close when the position of the modal is on the lower part of the screen  */
 const CLOSE_POSITION_SCREEN = 2 / 3;
-const MARGIN_TOP_PX = 20;
 const VELOCITY_BREAKPOINT = 700;
 
 export default function ModalUp(
-  props: PropsWithChildren<{ className: string; withClose?: boolean }>,
+  props: PropsWithChildren<{
+    className: string;
+    withClose?: boolean;
+    marginTopPx: number;
+  }>,
 ) {
   const navigate = useNavigate();
+  const { marginTopPx } = props;
   const screenHeight = window.screen.availHeight;
   const [closing, setClosing] = useState(false);
   useEffect(() => {
@@ -23,7 +27,7 @@ export default function ModalUp(
     <motion.div
       initial={{ translateY: `${screenHeight}px` }}
       animate={{
-        translateY: closing ? `${1.1 * screenHeight}px` : `${MARGIN_TOP_PX}px`,
+        translateY: closing ? `${1.1 * screenHeight}px` : `${marginTopPx}px`,
       }}
       drag="y"
       transition={{ type: 'spring', damping: 100, stiffness: 1000 }}
@@ -35,7 +39,7 @@ export default function ModalUp(
       }}
       dragElastic={0.2}
       dragSnapToOrigin
-      dragConstraints={{ top: -MARGIN_TOP_PX, bottom: screenHeight - 100 }}
+      dragConstraints={{ top: -marginTopPx, bottom: screenHeight - 100 }}
       dragTransition={{ power: 0.1, timeConstant: 100 }}
       className={cn(
         'max-w-[640px] mx-auto fixed inset-0 z-20',
