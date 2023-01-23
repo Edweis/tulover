@@ -74,7 +74,7 @@ export default function PinPassword(props: { onSuccess: () => void }) {
     if (pass.length === 4) signIn();
   }, [pass.length]);
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between py-8">
+    <div className="z-20 flex min-h-screen flex-col items-center justify-between py-8">
       <div className="bg-gray-muted flex h-14 w-14 items-center justify-center rounded-full">
         FR
       </div>
