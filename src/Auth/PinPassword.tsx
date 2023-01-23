@@ -13,7 +13,7 @@ function KeyBoard(props: {
       <div
         className="p-5 text-3xl"
         onClick={(e) => {
-          window.navigator?.vibrate(200); // Does not work on iOs
+          window.navigator?.vibrate?.(200); // Does not work on iOs
           return props.onClick(value);
         }}
       >
