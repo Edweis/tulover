@@ -59,8 +59,9 @@ export default function Chat() {
           {exchanges.map((e) => (
             <li
               className={cn(
-                'relative w-1/2 bg-blue-500 rounded-xl p-2',
+                'relative w-1/2 rounded-xl p-2',
                 e.amount.value < 0 && 'self-end',
+                e.amount.value > 0 ? 'bg-gray-300' : 'bg-blue-500',
               )}
             >
               <p>{e.amount.value > 0 ? 'You received' : 'You sent'}</p>
@@ -68,9 +69,11 @@ export default function Chat() {
               <span>{dayjs(e.date).format('D MMMM[, ]HH:mm')}</span>
               <div
                 className={cn(
-                  'absolute h-0 w-0 bottom-0 border-b-blue-500 border-l-transparent border-b-[20px] border-l-[20px]',
+                  'absolute h-0 w-0 bottom-0  border-l-transparent border-b-[20px] border-l-[20px]',
                   e.amount.value < 0 && 'scale-x-[-1] ',
-                  e.amount.value > 0 ? 'left-[-10px]' : 'right-[-10px]',
+                  e.amount.value > 0
+                    ? 'left-[-10px] border-b-gray-300'
+                    : 'right-[-10px] border-b-blue-500',
                 )}
               />
             </li>
