@@ -68,14 +68,10 @@ export default function Chat() {
               <span>{dayjs(e.date).format('D MMMM[, ]HH:mm')}</span>
               <div
                 className={cn(
-                  'absolute h-0 w-0 bottom-0 border-b-blue-500',
+                  'absolute h-0 w-0 bottom-0 border-b-blue-500 border-l-transparent border-b-[20px] border-l-[20px]',
                   e.amount.value < 0 && 'scale-x-[-1] ',
                   e.amount.value > 0 ? 'left-[-10px]' : 'right-[-10px]',
                 )}
-                style={{
-                  borderBottomWidth: '20px',
-                  borderLeft: '20px solid transparent',
-                }}
               />
             </li>
           ))}
