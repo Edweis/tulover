@@ -1,11 +1,40 @@
 import dayjs from 'dayjs';
 import { useParams } from 'react-router-dom';
+import cn from 'classnames';
 import SlideRight from '../../components/transition/SlideRight.js';
 import { Money } from '../../lib/database.js';
 import { toCurrency } from '../Personal/Accounts/helpers.js';
 
 type Exchange = { amount: Money; date: string };
 const exchanges: Exchange[] = [
+  {
+    amount: {
+      currency: 'EUR',
+      value: 500,
+    },
+    date: '2022-07-22T14:50',
+  },
+  {
+    amount: {
+      currency: 'EUR',
+      value: -341,
+    },
+    date: '2022-07-02T14:50',
+  },
+  {
+    amount: {
+      currency: 'EUR',
+      value: 97,
+    },
+    date: '2022-08-25T14:50',
+  },
+  {
+    amount: {
+      currency: 'EUR',
+      value: 500,
+    },
+    date: '2022-08-25T14:51',
+  },
   {
     amount: {
       currency: 'EUR',
@@ -25,13 +54,29 @@ export default function Chat() {
   const { userId } = useParams<{ userId: string }>();
   return (
     <SlideRight title={userId}>
-      <div className="absolute inset-0 mt-12 flex flex-col">
-        <ol className="grow bg-black">
+      <div className="absolute inset-0 mt-12 flex flex-col px-4 ">
+        <ol className="flex grow flex-col justify-end gap-4  bg-black">
           {exchanges.map((e) => (
-            <li>
+            <li
+              className={cn(
+                'relative w-1/2 bg-blue-500 rounded-xl p-2',
+                e.amount.value < 0 && 'self-end',
+              )}
+            >
               <p>{e.amount.value > 0 ? 'You received' : 'You sent'}</p>
               <div>{toCurrency(e.amount)}</div>
               <span>{dayjs(e.date).format('D MMMM[, ]HH:mm')}</span>
+              <div
+                className={cn(
+                  'absolute h-0 w-0 bottom-0 border-b-blue-500',
+                  e.amount.value < 0 && 'scale-x-[-1] ',
+                  e.amount.value > 0 ? 'left-[-10px]' : 'right-[-10px]',
+                )}
+                style={{
+                  borderBottomWidth: '20px',
+                  borderLeft: '20px solid transparent',
+                }}
+              />
             </li>
           ))}
         </ol>
