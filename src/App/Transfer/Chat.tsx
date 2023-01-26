@@ -65,7 +65,7 @@ export default function Chat() {
               )}
             >
               <p>{e.amount.value > 0 ? 'You received' : 'You sent'}</p>
-              <div>{toCurrency(e.amount)}</div>
+              <div className="text-2xl">{toCurrency(e.amount)}</div>
               <span>{dayjs(e.date).format('D MMMM[, ]HH:mm')}</span>
               <div
                 className={cn(
