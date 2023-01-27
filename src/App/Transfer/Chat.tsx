@@ -59,14 +59,16 @@ export default function Chat() {
           {exchanges.map((e) => (
             <li
               className={cn(
-                'relative w-1/2 rounded-xl p-2',
+                'relative w-1/2 rounded-xl p-2 text-center',
                 e.amount.value < 0 && 'self-end',
                 e.amount.value > 0 ? 'bg-gray-300' : 'bg-blue-500',
               )}
             >
               <p>{e.amount.value > 0 ? 'You received' : 'You sent'}</p>
               <div className="text-2xl">{toCurrency(e.amount)}</div>
-              <span>{dayjs(e.date).format('D MMMM[, ]HH:mm')}</span>
+              <div className="text-sm">
+                {dayjs(e.date).format('D MMMM[, ]HH:mm')}
+              </div>
               <div
                 className={cn(
                   'absolute h-0 w-0 bottom-0  border-l-transparent border-b-[20px] border-l-[20px]',
