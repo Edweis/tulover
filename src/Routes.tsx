@@ -7,6 +7,7 @@ import Personal from './App/Personal/index.js';
 import Transfer from './App/Transfer/index.js';
 import FloatingMenu from './App/FloatingMenu.js';
 import { wrapTranslateX } from './components/transition/TranslateX.js';
+import KycRoutes from './App/KYC/index.js';
 
 const MOCK_USER = { id: 123212 };
 const DEFAULT_USER = import.meta.env.DEV ? MOCK_USER : null;
@@ -46,6 +47,7 @@ export default function App() {
                 path="hub/*"
                 element={wrapTranslateX(<div>Hub</div>, 'hub')}
               />
+              <Route path="kyc/*" element={<KycRoutes />} />
               <Route path="*" element={<Navigate to="personal/accounts" />} />
             </Route>
           )}
