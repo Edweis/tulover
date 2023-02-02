@@ -8,6 +8,7 @@ import Transfer from './App/Transfer/index.js';
 import FloatingMenu from './App/FloatingMenu.js';
 import { wrapTranslateX } from './components/transition/TranslateX.js';
 import KycRoutes from './App/KYC/index.js';
+import IdType from './App/KYC/IdType.js';
 
 const MOCK_USER = { id: 123212 };
 const DEFAULT_USER = import.meta.env.DEV ? MOCK_USER : null;
@@ -47,13 +48,14 @@ export default function App() {
                 path="hub/*"
                 element={wrapTranslateX(<div>Hub</div>, 'hub')}
               />
-              <Route path="kyc/*" element={<KycRoutes />} />
+              <Route path="kyc/*" element={<KycRoutes />} key={'asdf'} />
               <Route path="*" element={<Navigate to="personal/accounts" />} />
             </Route>
           )}
         </Routes>
       </AnimatePresence>
-      {auth && <FloatingMenu />}
+
+      {/* {auth && <FloatingMenu />} */}
     </>
   );
 }

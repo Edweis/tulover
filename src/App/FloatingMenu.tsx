@@ -23,11 +23,6 @@ export default function FloatingMenu() {
         <Link
           key={m.path}
           to={m.path}
-          data-dir={JSON.stringify({
-            currentPathIndex,
-            i,
-            t: currentPathIndex > i ? 'left' : 'right',
-          })}
           state={{ [TRANSITION_DIR]: currentPathIndex > i ? 'left' : 'right' }}
         >
           <m.icon
