@@ -21,7 +21,7 @@ export default function IdType(props: { nextUri: string }) {
       <fieldset className="divide-gray-muted flex flex-col divide-y">
         {idTypes.map((t) => (
           <Link
-            to={`../${props.nextUri}`}
+            to={props.nextUri}
             key={t.value}
             onClick={() => updateKyc({ idType: t.value })}
             className="border-gray-muted flex items-center justify-between gap-4 py-4 first:border-t last:!border-b"

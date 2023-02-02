@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
 /** @type {import('tailwindcss').Config} */
@@ -34,5 +35,5 @@ module.exports = {
     outlineColor: {},
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
