@@ -31,6 +31,15 @@ export default function Form(props: { nextUri: string }) {
         <Label label="Civil Status">
           <Select>
             <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+          </Select>
+        </Label>
+        <Label label="Gender">
+          <Select>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
           </Select>
         </Label>
         <Label label="Date of birth">
