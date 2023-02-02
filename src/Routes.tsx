@@ -11,7 +11,7 @@ import KycRoutes from './App/KYC/index.js';
 import IdType from './App/KYC/IdType.js';
 
 const MOCK_USER = { id: 123212 };
-const DEFAULT_USER = import.meta.env.DEV ? MOCK_USER : null;
+const DEFAULT_USER = MOCK_USER; // import.meta.env.DEV ? MOCK_USER : null;
 
 export default function App() {
   const [auth, setAuth] = useState<typeof MOCK_USER | null>(DEFAULT_USER);
