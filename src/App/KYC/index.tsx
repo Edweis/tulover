@@ -1,23 +1,8 @@
-import cn from 'classnames';
-import { BellIcon, ChartBarIcon, StarIcon } from '@heroicons/react/24/solid';
-import {
-  Link,
-  useLocation,
-  Routes,
-  Route,
-  Navigate,
-  useNavigate,
-} from 'react-router-dom';
+import { useLocation, Routes, Route, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import { useState, useReducer, Reducer, FC, useEffect } from 'react';
-import SearchInput from '../../components/SearchInput.js';
-import {
-  TRANSITION_DIR,
-  wrapTranslateX,
-} from '../../components/transition/TranslateX.js';
+import { useReducer, Reducer } from 'react';
 import IdType from './IdType.js';
 import Form from './Form.js';
-import FaceScanUrl from './FaceScan.js';
 import IdPhoto from './IdPhoto.js';
 import Address from './Address.js';
 import Signature from './Signature.js';
@@ -43,7 +28,7 @@ export default function KycRoutes() {
   return (
     <kycContext.Provider value={updateKyc}>
       <Routes location={location} key={location.pathname}>
-        {/* <Route index element={<Navigate to="steps" />} /> */}
+        <Route index element={<Navigate to="steps" />} />
         <Route path="steps" element={<Layout kyc={kyc} steps={steps.length} />}>
           <Route path="id-type" element={<IdType nextUri="../id-photo" />} />
           <Route path="id-photo" element={<IdPhoto nextUri="../face-scan" />} />

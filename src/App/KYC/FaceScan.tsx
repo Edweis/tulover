@@ -25,7 +25,13 @@ export default function FaceScan(props: { nextUri: string }) {
           <p className="text-center">Keep your face within the frame</p>
         </div>
       </div>
-      <Link to={props.nextUri} className="text-gray-muted">
+      <Link
+        to={props.nextUri}
+        onClick={() => {
+          updateKyc({ faceScanUrl: 'https://...' });
+        }}
+        className="text-black"
+      >
         Continue
       </Link>
     </div>
