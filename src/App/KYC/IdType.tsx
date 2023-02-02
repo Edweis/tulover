@@ -1,5 +1,6 @@
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { kycContext, KycData } from './context.js';
 
 const idTypes: Array<{ value: KycData['idType']; label: string }> = [
@@ -17,18 +18,17 @@ export default function IdType(props: { nextUri: string }) {
   return (
     <div className="grid gap-8">
       <h3 className="text-2xl">Choose identification card</h3>
-      <fieldset className="divide-gray-muted  flex flex-col divide-y">
+      <fieldset className="divide-gray-muted flex flex-col divide-y">
         {idTypes.map((t) => (
-          <button
+          <Link
+            to={`../${props.nextUri}`}
             key={t.value}
-            onClick={() => {
-              updateKyc({ idType: t.value });
-            }}
+            onClick={() => updateKyc({ idType: t.value })}
             className="border-gray-muted flex items-center justify-between gap-4 py-4 first:border-t last:!border-b"
           >
             {t.label}
             <ChevronRightIcon className="h-6" />
-          </button>
+          </Link>
         ))}
       </fieldset>
     </div>
