@@ -23,7 +23,7 @@ export default function Form(props: { nextUri: string }) {
           <InputText itemType="text" placeholder="John" />
         </Label>
         <Label label="Middle Name, if any">
-          <InputText itemType="text" placeholder="Pastirma" />
+          <InputText itemType="text" placeholder="Pierre" />
         </Label>
         <Label label="Last Name">
           <InputText itemType="text" placeholder="Pastirma" />

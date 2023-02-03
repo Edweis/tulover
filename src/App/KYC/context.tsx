@@ -34,7 +34,9 @@ export type KycData = {
     street: string;
     zip: string;
   };
+
   signatureUrl: string;
+  acceptedTC: boolean;
 };
 
 export const kycContext = createContext<(kyc: Partial<KycData>) => void>(() => {

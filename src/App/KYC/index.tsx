@@ -10,6 +10,7 @@ import Success from './Success.js';
 import Layout from './Layout.js';
 import { kycContext, KycData } from './context.js';
 import FaceScan from './FaceScan.js';
+import Terms from './Terms.js';
 
 const steps: Array<{ path: string; data: keyof KycData }> = [
   { path: 'id-type', data: 'idType' },
@@ -18,6 +19,7 @@ const steps: Array<{ path: string; data: keyof KycData }> = [
   { path: 'form', data: 'form' },
   { path: 'address', data: 'address' },
   { path: 'signature', data: 'signatureUrl' },
+  { path: 'terms-conditions', data: 'acceptedTC' },
 ];
 
 export default function KycRoutes() {
@@ -35,7 +37,11 @@ export default function KycRoutes() {
           <Route path="face-scan" element={<FaceScan nextUri="../form" />} />
           <Route path="form" element={<Form nextUri="../address" />} />
           <Route path="address" element={<Address nextUri="../signature" />} />
-          <Route path="signature" element={<Signature nextUri="xxx" />} />
+          <Route
+            path="signature"
+            element={<Signature nextUri="../terms-conditions" />}
+          />
+          <Route path="terms-conditions" element={<Terms nextUri="xxx" />} />
           <Route index path="*" element={<Navigate to="id-type" />} />
         </Route>
       </Routes>
