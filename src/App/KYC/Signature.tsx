@@ -25,6 +25,19 @@ export default function Signature(props: { nextUri: string }) {
           Draw signature <ChevronRightIcon className="inline h-6" />
         </div>
       </Card>
+      <label className="mr-6 flex items-center gap-4 text-sm">
+        <input
+          type="checkbox"
+          checked
+          className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+        />
+        <span>
+          I agree to the{' '}
+          <Link to="../terms-conditions" className="underline">
+            terms and conditions
+          </Link>
+        </span>
+      </label>
       {show && (
         <div className="fixed inset-0 flex bg-black">
           <div

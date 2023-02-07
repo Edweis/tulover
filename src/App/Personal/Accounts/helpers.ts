@@ -22,6 +22,7 @@ export const toCurrencyDetails = (money: Money) => {
     })
       .formatToParts(value)
       .at(-1)?.value || '';
+
   return { int, dec, name: capitalize(name), symbol };
 };
 export const toCurrency = ({ currency, value }: Money) =>
