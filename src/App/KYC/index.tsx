@@ -2,11 +2,8 @@ import { useLocation, Routes, Route, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { useReducer, Reducer } from 'react';
 import IdType from './IdType.js';
-import Form from './Form.js';
 import IdPhoto from './IdPhoto.js';
-import Address from './Address.js';
 import Signature from './Signature.js';
-import Success from './Success.js';
 import Layout from './Layout.js';
 import { kycContext, KycData } from './context.js';
 import FaceScan from './FaceScan.js';
@@ -20,7 +17,7 @@ const steps: Array<{ path: string; data: keyof KycData }> = [
   //   { path: 'form', data: 'form' },
   //   { path: 'address', data: 'address' },
   { path: 'signature', data: 'signatureUrl' },
-  { path: 'terms-conditions', data: 'acceptedTC' },
+  //   { path: 'terms-conditions', data: 'acceptedTC' },
 ];
 
 export default function KycRoutes() {

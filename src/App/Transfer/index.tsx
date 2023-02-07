@@ -85,7 +85,7 @@ export default function Transfer() {
             </button>
           </div>
           <p className="text-blue-500">@francisruri</p>
-          <SearchInput placeholder="Name, @Revtag, phone, email">
+          <SearchInput placeholder="Name, @OverTag, phone, email">
             <button className="mr-6">
               <UserIcon className="h-full" />
             </button>

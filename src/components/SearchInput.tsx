@@ -14,7 +14,10 @@ const SearchInput = forwardRef<unknown, React.HTMLAttributes<HTMLInputElement>>(
         )}
       >
         <MagnifyingGlassIcon className="fill-gray-muted h-6 shrink-0" />
-        <input className="w-full bg-inherit text-sm font-light" {...others} />
+        <input
+          className="placeholder:text-muted w-full bg-inherit text-sm font-light"
+          {...others}
+        />
         {children}
       </div>
     );

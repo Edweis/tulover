@@ -7,20 +7,20 @@ import { toCurrency } from '../Personal/Accounts/helpers.js';
 
 type Exchange = { amount: Money; date: string };
 const exchanges: Exchange[] = [
-  {
-    amount: {
-      currency: 'EUR',
-      value: 500,
-    },
-    date: '2022-07-22T14:50',
-  },
-  {
-    amount: {
-      currency: 'EUR',
-      value: -341,
-    },
-    date: '2022-07-02T14:50',
-  },
+  // {
+  //   amount: {
+  //     currency: 'EUR',
+  //     value: 500,
+  //   },
+  //   date: '2022-07-22T14:50',
+  // },
+  // {
+  //   amount: {
+  //     currency: 'EUR',
+  //     value: -341,
+  //   },
+  //   date: '2022-07-02T14:50',
+  // },
   {
     amount: {
       currency: 'EUR',
