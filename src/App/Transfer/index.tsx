@@ -41,6 +41,26 @@ const transfers: Transfer[] = [
     user: 'BNP Bank',
     amount: { currency: 'EUR', value: -744 },
   },
+  {
+    date: '2022-08-23',
+    user: 'Greg Manson',
+    amount: { currency: 'EUR', value: 230 },
+  },
+  {
+    date: '2022-08-23',
+    user: 'Robert Bryar',
+    amount: { currency: 'EUR', value: -20 },
+  },
+  {
+    date: '2022-08-20',
+    user: 'Manon Ravier',
+    amount: { currency: 'EUR', value: 44 },
+  },
+  {
+    date: '2022-08-19',
+    user: 'Bernadette Grail',
+    amount: { currency: 'EUR', value: 11 },
+  },
 ];
 
 function TransferLine(props: { transfer: Transfer }) {
@@ -54,19 +74,19 @@ function TransferLine(props: { transfer: Transfer }) {
             .map((e) => e.slice(0, 1).toUpperCase())
             .join('')}
         </div>
-        <div className="ml-4 grid">
-          <span>{t.user}</span>
+        <div className="ml-4 grid grow truncate">
+          <div className="flex justify-between">
+            <span>{t.user}</span>
+            <span className="text-muted ">
+              {dayjs(t.date).format('D MMM YYYY')}
+            </span>
+          </div>
           <span className="text-muted">
             {t.amount.value < 0 && `💸 You sent ${toCurrency(t.amount)}`}
             {t.amount.value > 0 && `🤑 You recieved ${toCurrency(t.amount)}`}
           </span>
         </div>
-        <div className="ml-auto grid text-right">
-          <span className="text-muted">
-            {dayjs(t.date).format('D MMM YYYY')}
-          </span>
-        </div>
-      </li>{' '}
+      </li>
     </Link>
   );
 }
@@ -75,7 +95,7 @@ export default function Transfer() {
   const location = useLocation();
   return (
     <>
-      <div className="grid gap-8">
+      <div className="mt-6 grid gap-8">
         <div className="grid gap-3">
           <div className="flex justify-between">
             <h1 className="text-4xl font-medium">Transfer</h1>

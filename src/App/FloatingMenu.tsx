@@ -18,7 +18,7 @@ export default function FloatingMenu() {
   const currentPathIndex = menu.findIndex((m) => pathname.startsWith(m.path));
 
   return (
-    <div className="fixed top-[87vh] left-0 z-10 mb-8 flex translate-x-1/2 gap-8 rounded-full bg-white/10 px-8 py-4 backdrop-blur-md">
+    <div className="fixed top-[91vh] left-0 z-10 mb-8 flex translate-x-1/2 gap-8 rounded-full bg-white/20 px-8 py-4 backdrop-blur-md">
       {menu.map((m, i) => (
         <Link
           key={m.path}

@@ -40,7 +40,7 @@ export default function PersonalLayout() {
           <BellIcon className="h-6" />
         </div>
         <SearchInput placeholder="Search" />
-        <ol className="flex gap-4 overflow-y-scroll text-sm">
+        {/* <ol className="flex gap-4 overflow-y-scroll text-sm">
           {links.map((l, i) => (
             <Link
               key={l.path}
@@ -56,7 +56,7 @@ export default function PersonalLayout() {
               {l.label}
             </Link>
           ))}
-        </ol>
+        </ol> */}
       </div>
       <AnimatePresence initial={false}>
         <Routes location={location} key={location.pathname}>

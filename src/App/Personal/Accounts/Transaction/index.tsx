@@ -57,10 +57,10 @@ export default function Transaction() {
           </div>
         </Card>
         <Card className="bg-gray-800">
-          <div className="flex justify-between">
+          {/* <div className="flex justify-between">
             <span className="text-muted">Exchange rate</span>
             <span className="text-right">1 = xxx</span>
-          </div>
+          </div> */}
           <div className="flex justify-between">
             <span className="text-muted">Fee</span>
             <span className="flex items-center justify-end gap-2">No fees</span>

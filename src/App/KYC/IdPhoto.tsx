@@ -18,7 +18,7 @@ export default function IdPhoto(props: { nextUri: string }) {
           width: 'auto',
         }}
       />
-      <p className="text-center">Place your ID within the frame</p>
+      <p className="mt-[20vh] text-center">Place your ID within the frame</p>
       <Link
         to={props.nextUri}
         onClick={() => updateKyc({ idPhotoUrl: 'https://....' })}

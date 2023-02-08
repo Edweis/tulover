@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { useParams } from 'react-router-dom';
 import cn from 'classnames';
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid';
 import SlideRight from '../../components/transition/SlideRight.js';
 import { Money } from '../../lib/database.js';
 import { toCurrency } from '../Personal/Accounts/helpers.js';
@@ -31,30 +32,37 @@ const exchanges: Exchange[] = [
   {
     amount: {
       currency: 'EUR',
-      value: 500,
+      value: -32,
     },
     date: '2022-08-25T14:51',
   },
   {
     amount: {
       currency: 'EUR',
-      value: 500,
+      value: 321,
     },
     date: '2022-08-25T14:52',
   },
   {
     amount: {
       currency: 'EUR',
-      value: -174.72,
+      value: 44,
     },
-    date: '2022-09-23T14:1400',
+    date: '2022-08-20T14:52',
+  },
+  {
+    amount: {
+      currency: 'EUR',
+      value: -200,
+    },
+    date: '2022-08-28T14:1400',
   },
 ];
 export default function Chat() {
   const { userId } = useParams<{ userId: string }>();
   return (
     <SlideRight title={userId}>
-      <div className="absolute inset-0 mt-12 flex flex-col px-4 ">
+      <div className="absolute inset-0 mt-20 flex flex-col px-4">
         <ol className="flex grow flex-col justify-end gap-4  bg-black">
           {exchanges.map((e) => (
             <li
@@ -81,10 +89,14 @@ export default function Chat() {
             </li>
           ))}
         </ol>
-        <input
-          className="placeholder:text-gray-muted m-2 rounded-full bg-gray-800 px-6 py-3 "
-          placeholder="Type a message ..."
-        />
+        <div className="my-4 flex items-center gap-4 rounded-full bg-gray-800 px-4 py-2">
+          <input
+            className="placeholder:text-gray-muted m-2 w-full bg-gray-800  "
+            placeholder="Type, send or request money"
+          />
+          <ArrowLeftIcon className="fill-gray-muted h-6 shrink-0" />
+          <ArrowRightIcon className="fill-gray-muted h-6 shrink-0" />
+        </div>
       </div>
     </SlideRight>
   );

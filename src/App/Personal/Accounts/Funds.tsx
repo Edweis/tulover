@@ -3,7 +3,7 @@ import {
   EllipsisHorizontalIcon,
 } from '@heroicons/react/20/solid';
 import { PlusIcon } from '@heroicons/react/24/solid';
-import Button, { ButtonAnchor } from '../../../components/Button.js';
+import { ButtonAnchor } from '../../../components/Button.js';
 import Card from '../../../components/Card.js';
 import { toCurrencyDetails } from './helpers.js';
 import TransactionLine from './TransactionLine.js';

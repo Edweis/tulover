@@ -22,7 +22,7 @@ export default function TransactionLine({ tx }: { tx: Transaction }) {
         <div className="ml-auto grid text-right">
           <span>{toCurrency(tx.amount)}</span>
           <span className="text-muted">
-            {tx.amountReq && toCurrency(tx.amountReq)}
+            {/* {tx.amountReq && toCurrency(tx.amountReq)} */}
           </span>
         </div>
       </li>
